@@ -1,26 +1,21 @@
 <?php
 class Cabecera
 {
- private $titulo;   
- /**
-  * Get the value of titulo
-  */
- public function getTitulo()
- {
-  return $this->titulo;
- }
-
- /**
-  * Set the value of titulo
-  */
- public function setTitulo($titulo): self
- {
-  $this->titulo = $titulo;
-
-  return $this;
- }
-}
+    private $titulo;   
+    private $ubicacion;
     
+    public function __construct($tit,$ubi)
+    {
+      $this->titulo=$tit;
+      $this->ubicacion=$ubi;
+    }
 
+    public function darEstilo()
+    {
+        echo '<div style="font-size:40px;text-align:'.$this->ubicacion.'">';
+        echo $this->titulo;
+        echo '</div>';
+    }
+}
    
 ?>

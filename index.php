@@ -7,21 +7,28 @@
 </head>
 <body>
 
-<div style="text-align: center;">
-    <?php
-    // Llamamos a la clase Cabecera
-    include('Cabecera.php');
-    
-    // Creamos objeto de tipo Cabecera
-    $titulo = new Cabecera();
-    
-    // Seteamos título de dicho objeto (añadir parámetro)
-    $titulo->setTitulo('Este es el título');
-    
-    // Imprimimos por pantalla utilizando getter
-    echo "<h1>{$titulo->getTitulo()}</h1>";
-    ?>
-</div>
+<?php
+class CabeceraPagina {
+  private $titulo;
+  private $ubicacion;
+  
+  public function __construct($tit,$ubi)
+  {
+    $this->titulo=$tit;
+    $this->ubicacion=$ubi;
+  }
+
+  public function darEstilo()
+  {
+    echo '<div style="font-size:40px;text-align:'.$this->ubicacion.'">';
+    echo $this->titulo;
+    echo '</div>';
+  }
+}
+
+$cabecera=new CabeceraPagina('Mi primera cabecera con estilo','center');
+$cabecera->darEstilo();
+?>
 
 </body>
 </html>
